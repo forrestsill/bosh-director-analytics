@@ -1,0 +1,35 @@
+#!/bin/bash
+
+RUN_DIR=/var/vcap/sys/run/reporter
+LOG_DIR=/var/vcap/sys/log/reporter
+PIDFILE=${RUN_DIR}/pid
+
+case $1 in
+
+  start)
+    mkdir -p $RUN_DIR $LOG_DIR
+    chown -R vcap:vcap $RUN_DIR $LOG_DIR
+
+    echo $$ > $PIDFILE
+
+    export PATH=/var/vcap/packages/ruby_1.9.3:$PATH
+
+    exec /var/vcap/packages/ruby_1.9.3/bin/gem exec \
+      rackup -p 4222 \
+      >>  $LOG_DIR/reporter.stdout.log \
+      2>> $LOG_DIR/reporter.stderr.log
+
+    echo "Hello world" > $LOG_DIR/reporter.stdout.log
+
+    ;;
+
+  stop)
+    kill -9 `cat $PIDFILE`
+    rm -f $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: ctl {start|stop}" ;;
+
+esac

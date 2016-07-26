@@ -1,0 +1,5 @@
+check process reporter
+  with pidfile /var/vcap/sys/run/reporter/pid
+  start program "/var/vcap/jobs/reporter/bin/reporter_ctl start"
+  stop program "/var/vcap/jobs/reporter/bin/reporter_ctl stop"
+  group vcap
