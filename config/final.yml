@@ -2,4 +2,4 @@
 blobstore:
   provider: local
   options:
-    blobstore_path: ~/Downloads
+    blobstore_path: blobs/

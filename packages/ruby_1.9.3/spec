@@ -1,9 +1,0 @@
----
-name: ruby_1.9.3
-
-dependencies:
-
-files:
-- ruby_1.9.3/bundler-1.2.1.gem
-- ruby_1.9.3/ruby-1.9.3-p484.tar.gz
-- ruby_1.9.3/rubygems-1.8.24.tgz

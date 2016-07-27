@@ -4,5 +4,5 @@ name: reporter
 templates:
   reporter_ctl.erb: bin/reporter_ctl
 packages:
-  - libyaml_0.1.4
-  - ruby_1.9.3
+  - golang
+  - hello-world

@@ -1,0 +1,8 @@
+---
+name: hello-world
+
+dependencies:
+- golang
+
+files:
+- hello-world/**/*
